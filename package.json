@@ -1,9 +1,17 @@
 {
   "name": "app.endpoint",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "description": "AppEndpoint",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:savakac/AppEndpoint.git"
+  },
+  "author": "Jan Salva",
+  "license": "GNU v3.0",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "mocha --reporter spec"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -12,6 +20,14 @@
     "express": "~4.14.0",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "compression": "^1.6.2",
+    "lusca": "^1.4.1",
+    "mongoose": "^4.6.6",
+    "passport": "^0.3.2",
+    "express-session": "^1.14.2",
+    "express-flash": "^0.0.2",
+    "dotenv": "^2.0.0",
+    "connect-mongo": "^1.3.2"
   }
 }
