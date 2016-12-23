@@ -19,7 +19,7 @@ var flash = require('express-flash');
 //
 // Load enviroment variables
 //
-dotenv.load({ path: '.env.example' });
+dotenv.load({ path: '.env.app' });
 
 //
 // Controllers route handlers
