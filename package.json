@@ -11,7 +11,11 @@
   "license": "GNU v3.0",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "build-css": "./bin/build_css",
+    "watch-css": "./bin/watch_css",
+    "build-min": "./bin/build_min",
+    "rebuild": "./bin/rebuild"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -29,5 +33,9 @@
     "express-flash": "^0.0.2",
     "dotenv": "^2.0.0",
     "connect-mongo": "^1.3.2"
+  },
+  "devDependencies": {
+    "minifier": "^0.8.0",
+    "node-sass": "^4.1.1"
   }
 }

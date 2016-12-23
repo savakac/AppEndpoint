@@ -1,0 +1,1 @@
+minify --template {{filename}}.min.{{ext}} public/stylesheets/site/site.css

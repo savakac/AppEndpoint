@@ -1,0 +1,2 @@
+node-sass --include-path scss public/stylesheets/site/site.scss public/stylesheets/site/site.css
+minify --template {{filename}}.min.{{ext}} public/stylesheets/site/site.css
