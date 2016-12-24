@@ -1,2 +1,4 @@
 node-sass --include-path scss public/stylesheets/site/site.scss public/stylesheets/site/site.css
+browserify public/scripts/_references.js -o public/scripts/bundle.js
 minify --template {{filename}}.min.{{ext}} public/stylesheets/site/site.css
+minify --template {{filename}}.min.{{ext}} public/scripts/bundle.js

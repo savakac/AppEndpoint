@@ -1,0 +1,1 @@
+watchify public/scripts/_references.js -o public/scripts/bundle.js

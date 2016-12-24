@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app="app")
   head(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
@@ -7,10 +7,17 @@ html
     title= title
     link(rel="stylesheet", href="/stylesheets/site/site.min.css")
     link(href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet")
+    link(href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet")
 
-  body
+  body(ng-controller="AppController")
     block content
+
+    block scripts
 
     script(src="bower_components/jquery/dist/jquery.min.js")
     script(src="bower_components/bootstrap/dist/js/bootstrap.min.js")
     script(src="bower_components/angular/angular.min.js")
+    script(src="bower_components/moment/min/moment.min.js")
+    script(src="bower_components/fullcalendar/dist/fullcalendar.min.js")
+
+    script(src="scripts/bundle.min.js")

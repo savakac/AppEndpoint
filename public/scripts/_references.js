@@ -1,2 +1,3 @@
-/// <autosync enabled="true" />
-/// <reference path="datamodel/app.js" />
+require('./site/site.js')
+require('./datamodel/app.js');
+require('./datamodel/providers.js');
