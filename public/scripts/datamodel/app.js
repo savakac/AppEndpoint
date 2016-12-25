@@ -1,6 +1,7 @@
 (function () {
 	var app = angular.module('app', [
-		'providersModule'
+		'providersModule',
+        'calendarModule'
 	]);
 
 	app.controller('AppController', ['$http', '$log', '$rootScope', '$window', '$interval', '$timeout', '$injector', function ($http, $log, $rootScope, $window, $interval, $timeout, $injector) { 

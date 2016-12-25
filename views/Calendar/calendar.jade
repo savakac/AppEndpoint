@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  div(id="Calendar" ng-controller="CalendarController")
+
+  div(ng-controller="ProvidersController")
+  include ../Shared/_scripts
+  
+  script(type="text/javascript").
+    (function () {
+      var $calendar = $('#Calendar');
+
+      $calendar.fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,basicWeek,agendaDay'
+        },
+        aspectRatio: 1.2,
+        nextDayThreshold: "00:00:00",
+        timezone: 'UTC',
+        height: "100%",
+        eventLimit: true, // allow "more" link when too many events
+      });
+
+    })();

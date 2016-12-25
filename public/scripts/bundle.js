@@ -2,10 +2,12 @@
 require('./site/site.js')
 require('./datamodel/app.js');
 require('./datamodel/providers.js');
-},{"./datamodel/app.js":2,"./datamodel/providers.js":3,"./site/site.js":4}],2:[function(require,module,exports){
+require('./datamodel/calendar.js');
+},{"./datamodel/app.js":2,"./datamodel/calendar.js":3,"./datamodel/providers.js":4,"./site/site.js":5}],2:[function(require,module,exports){
 (function () {
 	var app = angular.module('app', [
-		'providersModule'
+		'providersModule',
+        'calendarModule'
 	]);
 
 	app.controller('AppController', ['$http', '$log', '$rootScope', '$window', '$interval', '$timeout', '$injector', function ($http, $log, $rootScope, $window, $interval, $timeout, $injector) { 
@@ -80,6 +82,15 @@ require('./datamodel/providers.js');
 })();
 },{}],3:[function(require,module,exports){
 (function () {
+    angular.module('calendarModule', [])
+
+    .controller('CalendarController', ['$http', '$log', '$scope', '$rootScope', '$window', '$timeout', '$interval', function ($http, $log, $scope, $rootScope, $window, $timeout, $interval) {
+
+    }])
+    
+})();
+},{}],4:[function(require,module,exports){
+(function () {
     angular.module('providersModule', [])
 
     .controller('ProvidersController', ['$http', '$log', '$scope', '$rootScope', '$window', '$timeout', '$interval', function ($http, $log, $scope, $rootScope, $window, $timeout, $interval) {
@@ -87,7 +98,7 @@ require('./datamodel/providers.js');
     }])
     
 })();
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var postForm = function ($form, successCallback, errorCallback, fileValidationCallback, allowBiggerFile) {
     $form = $($form);
 
