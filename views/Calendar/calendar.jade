@@ -1,14 +1,18 @@
 extends ../layout
 
 block content
-  div(id="Calendar" ng-controller="CalendarController")
+  div(id="Calendar" ng-controller="CalendarController" class="main-calendar")
+
+  //- Calendar
+  div(class="main calendar")
+    div(id="calendar")
 
   div(ng-controller="ProvidersController")
   include ../Shared/_scripts
 
   script(type="text/javascript").
     (function () {
-      var $calendar = $('#Calendar');
+      var $calendar = $('#calendar');
 
       $calendar.fullCalendar({
         header: {
@@ -19,8 +23,8 @@ block content
         aspectRatio: 1.2,
         nextDayThreshold: "00:00:00",
         timezone: 'UTC',
-        height: "100%",
-        eventLimit: true, // allow "more" link when too many events
+        //- height: "100%",
+        //- eventLimit: true, // allow "more" link when too many events
       });
 
     })();
