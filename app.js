@@ -11,6 +11,7 @@ var compression = require('compression');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var MongoStore = require('connect-mongo')(session);
+var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
 var lusca = require('lusca');
 var passport = require('passport');
@@ -29,17 +30,23 @@ var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
 var apiController = require('./controllers/api');
 
+//
+// Passport configuration strategy
+//
+const passportConfig = require('./config/passport');
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 310000000}));
 app.use(compression());
@@ -56,11 +63,43 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
+app.use((req, res, next) => {
+  // After successful login, redirect back to the intended page
+  if (!req.user &&
+      req.path !== '/login' &&
+      req.path !== '/signup' &&
+      !req.path.match(/^\/auth/) &&
+      !req.path.match(/\./)) {
+    req.session.returnTo = req.path;
+  } else if (req.user &&
+      req.path == '/account') {
+    req.session.returnTo = req.path;
+  }
+  next();
+});
+
 //
 // Primary app routes
 //
 app.get('/', homeController.index);
+app.get('/calendar', homeController.calendar);
 app.get('/user', userController.getUser);
+app.get('/login', userController.getLogin);
+app.post('/login', userController.postLogin);
+
+//
+// OAuth authenticate routes
+//
+app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+  console.log("redirect to");
+  res.redirect(req.session.returnTo || '/');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

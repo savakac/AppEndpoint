@@ -1,0 +1,35 @@
+div(class="navbar navbar-default navbar-fixed-top")
+    div(class="container")
+      div(class="navbar-header")
+        button(class="navbar-toggle" type="button", data-toggle="collapse", data-target=".navbar-collapse")
+          span(class="icon-bar")
+          span(class="icon-bar")
+          span(class="icon-bar")
+        a(class="navbar-brand" href="/")
+          i(class="fa fa-cube")
+          | App Endpoint
+      div(class="collapse navbar-collapse")
+        ul(class="nav navbar-nav")
+          li()
+            a(href="/") Home
+          li()
+            a(href="/calendar") Calendar
+          li()
+            a(href="/contact") Contact
+        ul(class="nav navbar-nav navbar-right")
+          li(class=(title == 'Login') ? 'active' : undefined)
+            a(href='/login') Login
+          li(class=(title == 'Create Account') ? 'active' : undefined)
+            a(href='/signup') Create Account
+            
+          //- li(class="dropdown")
+          //-   a(class="dropdown-toggle" href="#" data-toggle="dropdown")
+          //-     img(src="user.profile.picture")
+          //-     span() Test
+          //-     i(class="caret")
+          //-   ul(class="dropdown-menu")
+          //-     li()
+          //-       a(href="/account") My Account
+          //-     li(class="divider")
+          //-     li()
+          //-       a(href="/logout") Logout

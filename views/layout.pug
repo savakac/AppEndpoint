@@ -1,0 +1,18 @@
+doctype html
+html(ng-app="app")
+  head(lang="en")
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title= title
+    link(rel="stylesheet", href="/stylesheets/site/site.min.css")
+    link(href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet")
+    link(href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet")
+
+  body(ng-controller="AppController")
+    include Home/_header
+
+    div(class="container" style="padding-top: 70px;")
+      block content
+
+    include Home/_footer

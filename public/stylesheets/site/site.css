@@ -3,4 +3,11 @@ body {
 
 .main.calendar {
   padding-top: 70px;
-  padding-left: 300px; }
+  padding-left: 300px; 
+}
+
+.container {
+	padding-top: 70px;
+}
+
+

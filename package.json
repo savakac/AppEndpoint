@@ -19,6 +19,7 @@
     "rebuild": "./bin/rebuild"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.15.2",
     "browserify": "^13.1.1",
     "compression": "^1.6.2",
@@ -29,11 +30,18 @@
     "express": "~4.14.0",
     "express-flash": "^0.0.2",
     "express-session": "^1.14.2",
+    "express-validator": "^3.1.2",
     "jade": "~1.11.0",
     "lusca": "^1.4.1",
     "mongoose": "^4.6.6",
     "morgan": "~1.7.0",
+    "nodemailer": "^3.1.1",
     "passport": "^0.3.2",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-oauth": "^1.0.0",
+    "pug": "^2.0.0-beta10",
+    "route": "^0.2.5",
     "serve-favicon": "~2.3.0",
     "urijs": "^1.18.4"
   },
